@@ -1,4 +1,6 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { AppService } from 'src/app/app.service';
+import { UserData } from 'src/app/pages/auth/auth.model';
 
 @Component({
   selector: 'app-header',
@@ -6,6 +8,22 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   styleUrls: ['./header.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
+  public userData?: UserData;
 
+  constructor(private _appService: AppService) {}
+
+  public ngOnInit(): void {
+      this._appService.isLoggedIn$.subscribe(status => {
+        if (status) {
+          const userDataStr = localStorage.getItem("user-data");
+          if (!userDataStr) {
+            return;
+          }
+          this.userData = JSON.parse(userDataStr);
+        } else {
+          this.userData = undefined;
+        }
+      })
+  }
 }

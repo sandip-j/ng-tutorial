@@ -1,0 +1,13 @@
+.product {
+    .card {
+        pointer-events: all;
+        cursor: pointer;
+    }
+    .card-img-top {
+        height: 300px;
+    }
+
+    .card-text {
+        height: 72px;
+    }
+}

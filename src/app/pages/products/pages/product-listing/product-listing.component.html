@@ -1,0 +1,23 @@
+<div class="pagetitle">
+    <h1>Product Listing</h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+        <li class="breadcrumb-item active">Product Listing</li>
+      </ol>
+    </nav>
+  </div>
+
+<section class="section product">
+    <div class="row">
+        <div class="col-sm-4" *ngFor="let product of products">
+            <div class="card" (click)="onProductClick(product)">
+                <img [src]="product.thumbnail" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">{{product.title}}</h5>
+                  <p class="card-text">{{product.description}}</p>
+                </div>
+              </div>
+        </div>    
+    </div>
+</section>

@@ -1,5 +1,6 @@
-<app-header></app-header>
-<main class="main" id="main">
+<app-header *ngIf="appService.isLoggedIn$ | async"></app-header>
+<app-left-side-nav *ngIf="appService.isLoggedIn$ | async"></app-left-side-nav>
+<main [ngClass]="{'main': true, 'main-left-0': !(appService.isLoggedIn$ | async)}" id="main">
   <router-outlet></router-outlet>
 </main>
-<app-footer></app-footer>
+<app-footer *ngIf="appService.isLoggedIn$ | async"></app-footer>
