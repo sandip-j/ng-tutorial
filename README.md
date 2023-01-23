@@ -12,3 +12,4 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 ## Tutorial in Days
 This project have branches in format Day-{number}. For every day also added a doc file.
 - [Day 1](./docs/day-1.md)
+- [Day 2](./docs/day-2.md)

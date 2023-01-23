@@ -1,0 +1,9 @@
+<ng-content></ng-content>
+<ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+    <li class="dropdown-header text-start">
+       <h6>{{ title }}</h6>
+    </li>
+    <li *ngFor="let item of dropdownItems">
+        <a class="dropdown-item" href="#" (click)="onDropdownItemClick(item)">{{item.key}}</a>
+    </li>
+</ul>

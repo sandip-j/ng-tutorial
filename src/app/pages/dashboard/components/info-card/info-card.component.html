@@ -1,0 +1,22 @@
+<div class="card info-card sales-card">
+    <div class="filter">
+       <app-dropdown-menu title="Filter" [dropdownItems]="filterData" (dropdownItemClick)="onDropdownItemClick($event)">
+         <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+       </app-dropdown-menu>
+    </div>
+    <div class="card-body">
+       <h5 class="card-title">{{ title}} <span>| {{ filter }}</span></h5>
+       <div class="d-flex align-items-center">
+          <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+            <i class="{{iconClass}}" *ngIf="iconClass; else elseIconUrl"></i>
+            <ng-template #elseIconUrl>
+                <img [src]="iconUrl" />
+            </ng-template>
+          </div>
+          <div class="ps-3">
+             <h6>{{ header}}</h6>
+             <span class="text-success small pt-1 fw-bold">{{ subHeader.percent}}%</span> <span class="text-muted small pt-2 ps-1">{{subHeader.isIncrease ? "increase" : "decrease"}}</span>
+          </div>
+       </div>
+    </div>
+</div>
